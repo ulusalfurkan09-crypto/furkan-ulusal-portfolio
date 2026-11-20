@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furkan Ulusal — Kişisel Tanıtım</title>
+    <!-- Editöryal tipografi için Newsreader (zarif serif) ve Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Doğal, sıcak ve zamansız renk paleti */
+        :root {
+            --bg-primary: #FAF9F6;       /* Sıcak kırık beyaz / krem kağıt tonu */
+            --bg-subtle: #F3F1EC;        /* Çok hafif ton farkı */
+            --text-primary: #1C1B18;     /* Derin mürekkep antrasit */
+            --text-secondary: #5C5A55;   /* Yumuşak taş grisi */
+            --accent: #23415A;           /* Oturaklı derin lacivert */
+            --border: #E6E4DD;           /* İnce saç teli ayırıcı çizgi */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.75;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Ana Taşıyıcı */
+        .page-wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 5rem 2rem 4rem 2rem;
+        }
+
+        /* Üst Başlık Alanı (Editorial Header) */
+        header {
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3.5rem;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        h1 {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 400;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            color: var(--text-primary);
+            margin-bottom: 0.85rem;
+        }
+
+        .lead-meta {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .dot-separator {
+            color: var(--border);
+            font-weight: bold;
+        }
+
+        /* Asimetrik İki Sütunlu Editöryal Yerleşim */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .editorial-grid:last-of-type {
+            border-bottom: none;
+            margin-bottom: 1rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .section-label {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-secondary);
+            padding-top: 0.15rem;
+        }
+
+        .section-content p {
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+            font-size: 1.02rem;
+            max-width: 60ch;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .text-emphasis {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        /* Eğitim & Hedefler İnce Çizgili Satır Yapısı */
+        .info-rows {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-row {
+            padding: 1.1rem 0;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+
+        .info-row:first-child {
+            padding-top: 0;
+            border-top: none;
+        }
+
+        .info-title {
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .info-detail {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            text-align: right;
+        }
+
+        /* Hobiler & İlgi Alanları Zarif Liste */
+        .hobby-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hobby-item {
+            padding: 0.85rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: padding-left 0.25s ease, color 0.25s ease;
+        }
+
+        .hobby-item:first-child {
+            padding-top: 0;
+        }
+
+        .hobby-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .hobby-item:hover {
+            padding-left: 0.4rem;
+            color: var(--accent);
+        }
+
+        .hobby-num {
+            font-family: 'Newsreader', Georgia, serif;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Kapanış ve İletişim Alanı */
+        .closing-box {
+            background-color: var(--bg-subtle);
+            padding: 2.25rem;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        .closing-box p {
+            margin-bottom: 1.1rem;
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .closing-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Zarif Alt Çizgi Geçişli E-posta Linki */
+        .mail-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1px;
+            border-bottom: 1px solid rgba(35, 65, 90, 0.35);
+            transition: border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .mail-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 100%;
+            height: 1.5px;
+            background-color: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .mail-link:hover {
+            color: #132636;
+        }
+
+        .mail-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Alt Bilgi (Footer) */
+        footer {
+            margin-top: 4rem;
+            padding-top: 1.75rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Uyumluluk (Tablet & Mobil) */
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 3.5rem 1.5rem 3rem 1.5rem;
+            }
+
+            .editorial-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding-bottom: 2.25rem;
+                margin-bottom: 2.25rem;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .info-detail {
+                text-align: left;
+            }
+
+            .closing-box {
+                padding: 1.5rem;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <!-- Üst Başlık -->
+        <header>
+            <span class="eyebrow">Kişisel Portfolyo &amp; Tanıtım</span>
+            <h1>Furkan Ulusal</h1>
+            <div class="lead-meta">
+                <span>Bilgisayar Programcılığı Öğrencisi</span>
+                <span class="dot-separator">&middot;</span>
+                <span>Adana / Burdur</span>
+            </div>
+        </header>
+
+        <main>
+            <!-- 1. Bölüm: Hakkımda -->
+            <section class="editorial-grid" aria-labelledby="baslik-hakkimda">
+                <h2 id="baslik-hakkimda" class="section-label">Hakkımda</h2>
+                <div class="section-content">
+                    <p>
+                        Merhabalar, size kısaca kendimden bahsetmek istiyorum. Adım <span class="text-emphasis">Furkan Ulusal</span>, 20 yaşındayım. Adana'da doğup büyüdüm.
+                    </p>
+                    <p>
+                        Şu anda <span class="text-emphasis">Burdur Ağlasun Meslek Yüksekokulu</span>'nda 1. sınıf Bilgisayar Programcılığı öğrencisiyim. Yazılım programlama ve geliştirmeye olan merakım ve ilgim nedeniyle bu bölümü seçtim.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 2. Bölüm: Eğitim & Hedeflerim -->
+            <section class="editorial-grid" aria-labelledby="baslik-hedefler">
+                <h2 id="baslik-hedefler" class="section-label">Eğitim &amp; Hedeflerim</h2>
+                <div class="section-content">
+                    <div class="info-rows">
+                        <div class="info-row">
+                            <span class="info-title">Burdur Ağlasun Meslek Yüksekokulu</span>
+                            <span class="info-detail">Bilgisayar Programcılığı (1. Sınıf)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-title">Memleket</span>
+                            <span class="info-detail">Adana</span>
+                        </div>
+                    </div>
+                    <p style="margin-top: 1.5rem;">
+                        Mezun olduktan sonraki hedeflerim; Allah nasip ederse yazılım sektöründe önde gelen kişilerden biri olup, insanlık için faydalı projeler üretmek, sunmak ve geliştirmektir.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 3. Bölüm: İlgi Alanları -->
+            <section class="editorial-grid" aria-labelledby="baslik-hobiler">
+                <h2 id="baslik-hobiler" class="section-label">İlgi Alanları</h2>
+                <div class="section-content">
+                    <ul class="hobby-list">
+                        <li class="hobby-item">
+                            <span>Müzik dinlemek</span>
+                            <span class="hobby-num">01</span>
+                        </li>
+                        <li class="hobby-item">
+                            <span>Futbol oynamak</span>
+                            <span class="hobby-num">02</span>
+                        </li>
+                        <li class="hobby-item">
+                            <span>Gezmek ve yeni yerler keşfetmek</span>
+                            <span class="hobby-num">03</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 4. Bölüm: Kapanış ve İletişim -->
+            <section class="editorial-grid" aria-labelledby="baslik-iletisim">
+                <h2 id="baslik-iletisim" class="section-label">İletişim</h2>
+                <div class="section-content">
+                    <div class="closing-box">
+                        <p>
+                            Hakkımda anlatacaklarım bu kadar. Zaman ayırıp okuduğunuz için teşekkürler, sağlıkla kalın, iyi günler.
+                        </p>
+                        <p>
+                            Bana ulaşmak isterseniz <a href="mailto:ulusalfurkan09@gmail.com" class="mail-link">ulusalfurkan09@gmail.com</a> adresinden ulaşabilirsiniz.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Alt Bilgi -->
+        <footer>
+            <span>&copy; 2026 Furkan Ulusal</span>
+        </footer>
+    </div>
+
+</body>
+</html>
